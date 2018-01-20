@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="utf-8">
+	<title>Hello...</title>
+</head>
+
+<body>
+
+	<div id="app">
+		<ul>
+			<li v-for="post in posts" >
+				{{ post.title }}
+			</li>
+			
+		</ul>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+	<script>
+		/*global Vue*/
+		const app = new Vue({
+			el: '#app',
+			data: {
+				posts: []
+			},
+			created() {
+				fetch('https://vuedev-bluerose.c9users.io:8081/posts')
+				.then(response => response.json())
+				.then(json => {
+					console.log("json", json);
+					this.posts = json;
+				});
+			}
+		});
+	</script>
+</body>
+
+</html>
