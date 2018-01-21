@@ -3,17 +3,20 @@
     {
       "id": 1,
       "setting": "logLevel",
-      "defaultValue": "trace"
+      "defaultValue": "trace",
+      "value": "debug"
     },
     {
       "id": 2,
       "setting": "sleepSeconds",
-      "defaultValue": 20
+      "defaultValue": 20,
+      "value": 20
     },
     {
       "id": 3,
       "setting": "useDemoData",
-      "defaultValue": true
+      "defaultValue": true,
+      "value": false
     }
     ],
   "posts": [

@@ -7,7 +7,8 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
     state: {
         count: 0,
-        message: ''
+        message: '',
+        appSettings: []
     },
     mutations: {
         increment: state => state.count++,
