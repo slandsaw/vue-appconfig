@@ -1,4 +1,21 @@
 {
+  "appSettings": [
+    {
+      "id": 1,
+      "setting": "logLevel",
+      "defaultValue": "trace"
+    },
+    {
+      "id": 2,
+      "setting": "sleepSeconds",
+      "defaultValue": 20
+    },
+    {
+      "id": 3,
+      "setting": "useDemoData",
+      "defaultValue": true
+    }
+    ],
   "posts": [
     {
       "id": 1,

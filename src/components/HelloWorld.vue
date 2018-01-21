@@ -1,112 +1,30 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    
-    <ul>
-			<li v-for="post in posts" >
-				{{ post.title }}
-			</li>
-			
-		</ul>
- 
-    <ul>
-      <li>
-        <a
-          href="https://vuejs.org"
-          target="_blank"
-        >
-          Core Docs
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://forum.vuejs.org"
-          target="_blank"
-        >
-          Forum
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://chat.vuejs.org"
-          target="_blank"
-        >
-          Community Chat
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://twitter.com/vuejs"
-          target="_blank"
-        >
-          Twitter
-        </a>
-      </li>
-      <br>
-      <li>
-        <a
-          href="http://vuejs-templates.github.io/webpack/"
-          target="_blank"
-        >
-          Docs for This Template
-        </a>
-      </li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li>
-        <a
-          href="http://router.vuejs.org/"
-          target="_blank"
-        >
-          vue-router
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vuex.vuejs.org/"
-          target="_blank"
-        >
-          vuex
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vue-loader.vuejs.org/"
-          target="_blank"
-        >
-          vue-loader
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-        >
-          awesome-vue
-        </a>
-      </li>
-    </ul>
-  </div>
+    <div style="width: 500px;">
+    <AppSetting v-for="item in appSettings" :key="item.id":appSetting="item"/>
+</div>  </div>
 </template>
 
 <script>
+  import AppSetting from './AppSetting'
+  
    /*global fetch*/
   export default {
     name: 'HelloWorld',
+    components: { AppSetting },
     data() {
       return {
-        msg: 'Welcome to Your Vue.js App',
-        posts: []
+        msg: 'This stuff is actually fun',
+        appSettings: []
       }
     },
     created() {
-      fetch('https://vue-appsetting-bluerose.c9users.io:8081/posts')
+      fetch('https://vue-appsetting-bluerose.c9users.io:8081/appSettings')
         .then(response => response.json())
         .then(json => {
           console.log("json", json);
-          this.posts = json;
+          this.appSettings = json;
         });
     }
   }
