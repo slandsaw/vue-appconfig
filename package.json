@@ -5,7 +5,7 @@
   "author": "ScottB <scottb@tsbrooks.com>",
   "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js --hot --host $IP --port $PORT",
+    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js --host $IP --port $PORT",
     "start": "npm run dev",
     "build": "node build/build.js"
   },

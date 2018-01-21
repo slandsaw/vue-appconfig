@@ -2,6 +2,14 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
+    
+    <ul>
+			<li v-for="post in posts" >
+				{{ post.title }}
+			</li>
+			
+		</ul>
+ 
     <ul>
       <li>
         <a
@@ -84,30 +92,26 @@
 </template>
 
 <script>
-export default {
-  name: 'HelloWorld',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
+   /*global fetch*/
+  export default {
+    name: 'HelloWorld',
+    data() {
+      return {
+        msg: 'Welcome to Your Vue.js App',
+        posts: []
+      }
+    },
+    created() {
+      fetch('https://vue-appsetting-bluerose.c9users.io:8081/posts')
+        .then(response => response.json())
+        .then(json => {
+          console.log("json", json);
+          this.posts = json;
+        });
     }
   }
-}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+<style>
 </style>
